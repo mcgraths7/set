@@ -10,8 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    lazy var game = SetGame()
+    var deck = [Card]()
+    @IBOutlet var cardGroup: [UIButton]!
+    @IBAction func touchCard(_ sender: UIButton) {
+        if let cardNum = cardGroup.index(of: sender) {
+            print(deck[cardNum])
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        deck = game.cards
         // Do any additional setup after loading the view, typically from a nib.
     }
 
