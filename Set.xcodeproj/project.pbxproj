@@ -14,10 +14,6 @@
 		ADAA27FB2136B410009FE6D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27F92136B410009FE6D9 /* LaunchScreen.storyboard */; };
 		ADAA28032136B420009FE6D9 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA28022136B420009FE6D9 /* SetGame.swift */; };
 		ADAA28052136B42B009FE6D9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA28042136B42B009FE6D9 /* Card.swift */; };
-		ADAA280C2136C909009FE6D9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA280B2136C909009FE6D9 /* Color.swift */; };
-		ADAA280E2136C95B009FE6D9 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA280D2136C95B009FE6D9 /* Pattern.swift */; };
-		ADAA28102136C9E5009FE6D9 /* Shading.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA280F2136C9E5009FE6D9 /* Shading.swift */; };
-		ADAA28122136CA1C009FE6D9 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA28112136CA1C009FE6D9 /* Number.swift */; };
 		ADAA28162136E4F2009FE6D9 /* CardProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA28152136E4F2009FE6D9 /* CardProperty.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,10 +27,6 @@
 		ADAA27FC2136B410009FE6D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADAA28022136B420009FE6D9 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		ADAA28042136B42B009FE6D9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		ADAA280B2136C909009FE6D9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		ADAA280D2136C95B009FE6D9 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
-		ADAA280F2136C9E5009FE6D9 /* Shading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shading.swift; sourceTree = "<group>"; };
-		ADAA28112136CA1C009FE6D9 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		ADAA28152136E4F2009FE6D9 /* CardProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProperty.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,10 +84,6 @@
 		ADAA28142136CA68009FE6D9 /* Props */ = {
 			isa = PBXGroup;
 			children = (
-				ADAA280B2136C909009FE6D9 /* Color.swift */,
-				ADAA280D2136C95B009FE6D9 /* Pattern.swift */,
-				ADAA280F2136C9E5009FE6D9 /* Shading.swift */,
-				ADAA28112136CA1C009FE6D9 /* Number.swift */,
 				ADAA28152136E4F2009FE6D9 /* CardProperty.swift */,
 			);
 			path = Props;
@@ -172,15 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADAA28122136CA1C009FE6D9 /* Number.swift in Sources */,
 				ADAA28162136E4F2009FE6D9 /* CardProperty.swift in Sources */,
-				ADAA280E2136C95B009FE6D9 /* Pattern.swift in Sources */,
 				ADAA27F32136B40E009FE6D9 /* ViewController.swift in Sources */,
 				ADAA27F12136B40E009FE6D9 /* AppDelegate.swift in Sources */,
 				ADAA28032136B420009FE6D9 /* SetGame.swift in Sources */,
-				ADAA280C2136C909009FE6D9 /* Color.swift in Sources */,
 				ADAA28052136B42B009FE6D9 /* Card.swift in Sources */,
-				ADAA28102136C9E5009FE6D9 /* Shading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

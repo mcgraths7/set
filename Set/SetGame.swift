@@ -9,7 +9,7 @@
 import Foundation
 
 struct SetGame {
-    private var numberOfCards = 81
+    private var numberOfCards = 27
     var cards = [Card]()
     var selectedCards = [Card]()
     var matchedCards = [Card]()
@@ -17,7 +17,7 @@ struct SetGame {
     var setCount = 0
     
     init() {
-        createDeckWithoutShading()
+        createDeck()
     }
     
     mutating func chooseCard(at index: Int) {
@@ -29,8 +29,10 @@ struct SetGame {
                 selectedCards.remove(at: cardToRemoveIndex)
             }
         }
+        
+
         if selectedCards.count == 3 {
-            if Card.checkMatch(firstCard: selectedCards[0], secondCard: selectedCards[1], thirdCard: selectedCards[2]) {
+            if Card.checkMatch(first: selectedCards[0], second: selectedCards[1], third: selectedCards[2]) {
                 setCount += 1
                 matchedCards.append(contentsOf: selectedCards)
                 cards = Array(Set(cards).subtracting(selectedCards))
@@ -43,21 +45,13 @@ struct SetGame {
     
     mutating func createDeck() {
         cards = []
-        while cards.count < 81 {
+        while cards.count < numberOfCards {
             let card = Card(colorProp: CardProperty.Color, patternProp: CardProperty.Pattern, shadingProp: CardProperty.Shading, numberProp: CardProperty.Number)
             if !cards.contains(card) {
                 cards.append(card)
             }
         }
     }
-    mutating func createDeckWithoutShading() {
-        cards = []
-        while cards.count < 81 {
-            let card = Card(colorProp: CardProperty.Color, patternProp: CardProperty.Pattern, numberProp: CardProperty.Number)
-            if !cards.contains(card) {
-                cards.append(card)
-            }
-        }
-    }
+
 
 }
