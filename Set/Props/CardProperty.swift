@@ -22,54 +22,49 @@ enum CardProperty: UInt32 {
         return maximum
     }()
     
-    private static func randomProperty() -> CardProperty {
-        let random = arc4random_uniform(_count)
-        return CardProperty(rawValue: random)!
-    }
-    
     static func randomValue(property: CardProperty) -> String {
         let random = arc4random_uniform(3)
         switch property {
         case .Color:
             switch random {
-            case 1:
+            case 0:
                 return "yellow"
-            case 2:
+            case 1:
                 return "blue"
-            case 3:
+            case 2:
                 return "red"
             default:
                 return "white"
             }
         case .Pattern:
             switch random {
-            case 1:
+            case 0:
                 return "triangle"
-            case 2:
+            case 1:
                 return "square"
-            case 3:
+            case 2:
                 return "circle"
             default:
                 return "none"
             }
         case .Shading:
             switch random {
-            case 1:
+            case 0:
                 return "solid"
-            case 2:
+            case 1:
                 return "striped"
-            case 3:
+            case 2:
                 return "empty"
             default:
                 return "none"
             }
         case .Number:
             switch random {
-            case 1:
+            case 0:
                 return "1"
-            case 2:
+            case 1:
                 return "2"
-            case 3:
+            case 2:
                 return "3"
             default:
                 return "0"

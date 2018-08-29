@@ -13,7 +13,10 @@ struct SetGame {
     var cards = [Card]()
     var selectedCards: [Card] {
         get {
-            return cards.indices.filter { cards[$0].isSelected }
+            return cards.filter { $0.isSelected == true }
+        }
+        set {
+            
         }
     }
     var isAMatch = false
@@ -21,12 +24,7 @@ struct SetGame {
     var setCount = 0
     
     init() {
-        while cards.count < 81 {
-            let card = Card(colorProp: CardProperty.Color, patternProp: CardProperty.Pattern, shadingProp: CardProperty.Shading, numberProp: CardProperty.Number)
-            if !cards.contains(card) {
-                cards.append(card)
-            }
-        }
+        createDeck()
     }
     
     mutating func chooseCard(at index: Int) {
@@ -35,7 +33,7 @@ struct SetGame {
         if selectedCards.count == 3 {
             isAMatch = Card.checkMatch(firstCard: selectedCards[0], secondCard: selectedCards[1], thirdCard: selectedCards[2])
             if isAMatch {
-                for card in selectedCards {
+                for var card in selectedCards {
                     card.match()
                 }
                 setCount += 1
@@ -44,6 +42,15 @@ struct SetGame {
             }
             selectedCards = []
         }
-
+    }
+    
+    mutating func createDeck() {
+        cards = []
+        while cards.count < 81 {
+            let card = Card(colorProp: CardProperty.Color, patternProp: CardProperty.Pattern, shadingProp: CardProperty.Shading, numberProp: CardProperty.Number)
+            if !cards.contains(card) {
+                cards.append(card)
+            }
+        }
     }
 }
