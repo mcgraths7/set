@@ -15,11 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet var cardGroup: [UIButton]!
     @IBAction func touchCard(_ sender: UIButton) {
         if let cardNum = cardGroup.index(of: sender) {
-            let chosenCard = deck[cardNum]
             game.chooseCard(at: cardNum)
-            print("Card \(cardNum + 1):\nColor: \(chosenCard.color)\nPattern: \(chosenCard.pattern)\nShading: \(chosenCard.shading)\nNumber: \(chosenCard.number)")
+            print(game.selectedCards)
+            print(game.matchedCards)
         }
-        print(game.selectedCards)
+        
         
     }
     override func viewDidLoad() {
@@ -32,16 +32,21 @@ class ViewController: UIViewController {
     func resetView() {
         for cardButton in cardGroup {
             if let cardNum = cardGroup.index(of: cardButton) {
+                cardButton.layer.borderWidth = 1
+                cardButton.layer.cornerRadius = 8
                 let chosenCard = deck[cardNum]
                 switch chosenCard.color {
                 case "yellow":
-                    cardButton.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+                    cardButton.setTitleColor(#colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1), for: .normal)
+                    cardButton.layer.borderColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
                 case "red":
-                    cardButton.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                    cardButton.setTitleColor(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), for: .normal)
+                    cardButton.layer.borderColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
                 case "blue":
-                    cardButton.backgroundColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
+                    cardButton.setTitleColor(#colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1), for: .normal)
+                    cardButton.layer.borderColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
                 default:
-                    cardButton.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    cardButton.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
                 }
                 switch chosenCard.pattern {
                 case "triangle":
@@ -77,15 +82,6 @@ class ViewController: UIViewController {
                     default:
                         cardButton.setTitle("", for: .normal)
                     }
-                default:
-                    break
-                }
-                switch chosenCard.shading {
-                case "solid":
-                    break
-                case "empty":
-                    
-                case "striped":
                 default:
                     break
                 }

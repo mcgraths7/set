@@ -11,12 +11,9 @@ import Foundation
 struct Card: Hashable {
     private(set) var color: String
     private(set) var pattern: String
-    private(set) var shading: String
+    private(set) var shading: String = "empty"
     private(set) var number: String
-    
-    var isSelected = false
-    private var isMatched = false
-    
+        
     private static func ==(lhs: Card, rhs: Card) -> Bool {
         return
             (lhs.color == rhs.color && lhs.pattern == rhs.pattern && lhs.shading == rhs.shading && lhs.number == rhs.number) ||
@@ -50,13 +47,12 @@ struct Card: Hashable {
         self.number = CardProperty.randomValue(property: numberProp)
     }
     
-    mutating func select() {
-        self.isSelected = !self.isSelected
+    init(colorProp: CardProperty, patternProp: CardProperty, numberProp: CardProperty) {
+        self.color = CardProperty.randomValue(property: colorProp)
+        self.pattern = CardProperty.randomValue(property: patternProp)
+        self.number = CardProperty.randomValue(property: numberProp)
     }
-    mutating func match() {
-        self.isMatched = true
-    }
-    
+        
     static func checkMatch(firstCard: Card, secondCard: Card, thirdCard: Card) -> Bool {
         return firstCard == secondCard && secondCard == thirdCard
     }
