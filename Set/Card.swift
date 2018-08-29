@@ -8,21 +8,46 @@
 
 import Foundation
 
-struct Card {
+struct Card: Hashable {
     private var color: String
     private var pattern: String
     private var shading: String
-    private var number: Int
+    private var number: String
     
-    private var isSelected = false
+    var isSelected = false
     private var isMatched = false
     
+    private static func ==(lhs: Card, rhs: Card) -> Bool {
+        return
+            (lhs.color == rhs.color && lhs.pattern == rhs.pattern && lhs.shading == rhs.shading && lhs.number == rhs.number) ||
+            (lhs.color != rhs.color && lhs.pattern != rhs.pattern && lhs.shading != rhs.shading && lhs.number != rhs.number) ||
+        
+            (lhs.color != rhs.color && lhs.pattern == rhs.pattern && lhs.shading == rhs.shading && lhs.number == rhs.number) ||
+            (lhs.color == rhs.color && lhs.pattern != rhs.pattern && lhs.shading == rhs.shading && lhs.number == rhs.number) ||
+            (lhs.color == rhs.color && lhs.pattern == rhs.pattern && lhs.shading != rhs.shading && lhs.number == rhs.number) ||
+            (lhs.color == rhs.color && lhs.pattern == rhs.pattern && lhs.shading == rhs.shading && lhs.number != rhs.number) ||
+        
+            (lhs.color != rhs.color && lhs.pattern != rhs.pattern && lhs.shading == rhs.shading && lhs.number == rhs.number) ||
+            (lhs.color != rhs.color && lhs.pattern == rhs.pattern && lhs.shading != rhs.shading && lhs.number == rhs.number) ||
+            (lhs.color != rhs.color && lhs.pattern == rhs.pattern && lhs.shading == rhs.shading && lhs.number != rhs.number) ||
+            (lhs.color == rhs.color && lhs.pattern != rhs.pattern && lhs.shading != rhs.shading && lhs.number == rhs.number) ||
+            (lhs.color == rhs.color && lhs.pattern != rhs.pattern && lhs.shading == rhs.shading && lhs.number != rhs.number) ||
+            (lhs.color == rhs.color && lhs.pattern == rhs.pattern && lhs.shading != rhs.shading && lhs.number != rhs.number) ||
+        
+            (lhs.color != rhs.color && lhs.pattern != rhs.pattern && lhs.shading != rhs.shading && lhs.number == rhs.number) ||
+            (lhs.color != rhs.color && lhs.pattern == rhs.pattern && lhs.shading != rhs.shading && lhs.number != rhs.number) ||
+            (lhs.color == rhs.color && lhs.pattern != rhs.pattern && lhs.shading != rhs.shading && lhs.number != rhs.number)
+    }
     
-    init(color: String, pattern: String, shading: String, number: Int) {
-        self.color = color
-        self.pattern = pattern
-        self.shading = shading
-        self.number = number
+    var hashValue: Int {
+        return color.hashValue ^ pattern.hashValue ^ shading.hashValue ^ number.hashValue
+    }
+    
+    init(colorProp: CardProperty, patternProp: CardProperty, shadingProp: CardProperty, numberProp: CardProperty) {
+        self.color = CardProperty.randomValue(property: colorProp)
+        self.pattern = CardProperty.randomValue(property: patternProp)
+        self.shading = CardProperty.randomValue(property: shadingProp)
+        self.number = CardProperty.randomValue(property: numberProp)
     }
     
     mutating func select() {
@@ -32,43 +57,7 @@ struct Card {
         self.isMatched = true
     }
     
-    private static func checkColorMatch(first: Card, second: Card, third: Card) -> Bool {
-        if (first.color == second.color && second.color == third.color) || (first.color != second.color && second.color != third.color) {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    private static func checkPatternMatch(first: Card, second: Card, third: Card) -> Bool {
-        if (first.pattern == second.pattern && second.pattern == third.pattern) || (first.pattern != second.pattern && second.pattern != third.pattern) {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    private static func checkShadingMatch(first: Card, second: Card, third: Card) -> Bool {
-        if (first.shading == second.shading && second.shading == third.shading) || (first.shading != second.shading && second.shading != third.shading) {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    private static func checkNumberMatch(first: Card, second: Card, third: Card) -> Bool {
-        if (first.number == second.number && second.number == third.number) || (first.number != second.number && second.number != third.number) {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    static func checkMatch(first: Card, second: Card, third: Card) -> Bool {
-        if checkColorMatch(first: first, second: second, third: third) && checkPatternMatch(first: first, second: second, third: third) && checkShadingMatch(first: first, second: second, third: third) && checkNumberMatch(first: first, second: second, third: third) {
-            return true
-        } else {
-            return false
-        }
+    static func checkMatch(firstCard: Card, secondCard: Card, thirdCard: Card) -> Bool {
+        return firstCard == secondCard && secondCard == thirdCard
     }
 }
