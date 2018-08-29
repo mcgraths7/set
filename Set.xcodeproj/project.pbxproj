@@ -12,6 +12,8 @@
 		ADAA27F62136B40E009FE6D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27F42136B40E009FE6D9 /* Main.storyboard */; };
 		ADAA27F82136B410009FE6D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27F72136B410009FE6D9 /* Assets.xcassets */; };
 		ADAA27FB2136B410009FE6D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAA27F92136B410009FE6D9 /* LaunchScreen.storyboard */; };
+		ADAA28032136B420009FE6D9 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA28022136B420009FE6D9 /* Set.swift */; };
+		ADAA28052136B42B009FE6D9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA28042136B42B009FE6D9 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		ADAA27F72136B410009FE6D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADAA27FA2136B410009FE6D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADAA27FC2136B410009FE6D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADAA28022136B420009FE6D9 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		ADAA28042136B42B009FE6D9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,24 @@
 		ADAA27EF2136B40E009FE6D9 /* Set */ = {
 			isa = PBXGroup;
 			children = (
-				ADAA27F02136B40E009FE6D9 /* AppDelegate.swift */,
+				ADAA28062136B437009FE6D9 /* Supporting Files */,
 				ADAA27F22136B40E009FE6D9 /* ViewController.swift */,
 				ADAA27F42136B40E009FE6D9 /* Main.storyboard */,
-				ADAA27F72136B410009FE6D9 /* Assets.xcassets */,
-				ADAA27F92136B410009FE6D9 /* LaunchScreen.storyboard */,
 				ADAA27FC2136B410009FE6D9 /* Info.plist */,
+				ADAA28022136B420009FE6D9 /* Set.swift */,
+				ADAA28042136B42B009FE6D9 /* Card.swift */,
 			);
 			path = Set;
+			sourceTree = "<group>";
+		};
+		ADAA28062136B437009FE6D9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ADAA27F02136B40E009FE6D9 /* AppDelegate.swift */,
+				ADAA27F72136B410009FE6D9 /* Assets.xcassets */,
+				ADAA27F92136B410009FE6D9 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +151,8 @@
 			files = (
 				ADAA27F32136B40E009FE6D9 /* ViewController.swift in Sources */,
 				ADAA27F12136B40E009FE6D9 /* AppDelegate.swift in Sources */,
+				ADAA28032136B420009FE6D9 /* Set.swift in Sources */,
+				ADAA28052136B42B009FE6D9 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
