@@ -9,16 +9,9 @@
 import Foundation
 
 struct SetGame {
-    var numberOfCards = 81
+    private var numberOfCards = 81
     var cards = [Card]()
-    var selectedCards: [Card] {
-        get {
-            return cards.filter { $0.isSelected == true }
-        }
-        set {
-            
-        }
-    }
+    var selectedCards = [Card]()
     var isAMatch = false
     
     var setCount = 0
@@ -30,6 +23,7 @@ struct SetGame {
     mutating func chooseCard(at index: Int) {
         var chosenCard = cards[index]
         chosenCard.select()
+        selectedCards.append(chosenCard)
         if selectedCards.count == 3 {
             isAMatch = Card.checkMatch(firstCard: selectedCards[0], secondCard: selectedCards[1], thirdCard: selectedCards[2])
             if isAMatch {
@@ -40,8 +34,8 @@ struct SetGame {
             } else {
                 setCount -= 1
             }
-            selectedCards = []
         }
+
     }
     
     mutating func createDeck() {

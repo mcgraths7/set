@@ -9,10 +9,10 @@
 import Foundation
 
 struct Card: Hashable {
-    private var color: String
-    private var pattern: String
-    private var shading: String
-    private var number: String
+    private(set) var color: String
+    private(set) var pattern: String
+    private(set) var shading: String
+    private(set) var number: String
     
     var isSelected = false
     private var isMatched = false
